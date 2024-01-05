@@ -14,7 +14,7 @@ The web application's appearance and functionality should include:
 Code should validate for each input and at least one character type should be selected
 Once prompts are answered then the password should be generated and displayed in an alert or written to the page
 
-Live site You can find the live site here - 
+Live site You can find the live site here - https://bentiger1904.github.io/PasswordGenerator/
 
 
 Screenshot 1/3
