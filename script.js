@@ -93,10 +93,7 @@ var userChoices=[];
 var result="";
 // Function to prompt user for password options
 function getPasswordOptions() {
-  //while loop that has the following conditions:
-  //pwLength <8 || pwLength>128 || isNaN(pwLength) || pwLength===""
-  //inside the while loop you create the promp that will be stored inside pwLength
-  //pwLength=prompt("")
+
   while(pwLength <8 || pwLength >128 || isNaN(pwLength) || pwLength===""){
     pwLength = prompt("Please enter total number of characters required for password between 8 and 128")
   }
@@ -120,21 +117,6 @@ var confirmLower = confirm("Would you like your password to contain lower case c
     alert("You need to choose at least one character type to generate your password")
   window.location.reload()
   }
-console.log(userChoices)
-  //confrims for the characters types
-  //you create a variable to contain the confirm
-  //var confirmLower= confirm("")
-  //you have to make sure that if the user says yes you store theyir choice
-  //if(confirmLower){
-  //userchoices=userchoices.concat(lowerCasedCharacters)
-  //}
-  //you repeat the above sequence for all the character options. 
-
-  //you need to make an if statement in case the user says no to all types of characters. 
-  //to represent false in an if statement all you need to do is a ! before the variable i.e !confirmLower
-  //inside the if statement you will put an alet telling the user they have to choose at least one type of character and then you do a window.location.reload()
-  //to force the app to restart
-
 }
 
 
@@ -144,13 +126,11 @@ function generatePassword() {
 
   //call the function getPasswordOptions
 getPasswordOptions()
-  //then you create a for loop where i<pwLength 
-  //inside the for loop you will create a Math.floor with a Math.randowm that you will store inside result. The Math.floor must take the userchoices lenght
 
-  //result+= userChoices[Math.floor(Math.randon()*userChoices.length)]
-
-  //after the loop you return result
-
+for(var i = 0; i<pwLength; i++){
+  result+= userChoices[Math.floor(Math.random()*userChoices.length)]
+}
+return result
 }
 
 // Get references to the #generate element
