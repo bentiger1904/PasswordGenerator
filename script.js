@@ -98,9 +98,29 @@ function getPasswordOptions() {
   //inside the while loop you create the promp that will be stored inside pwLength
   //pwLength=prompt("")
   while(pwLength <8 || pwLength >128 || isNaN(pwLength) || pwLength===""){
-    pwLength = prompt("Please enter total number of charachters required for password between 8 and 128")
+    pwLength = prompt("Please enter total number of characters required for password between 8 and 128")
   }
-
+var confirmLower = confirm("Would you like your password to contain lower case characters?")
+  if(confirmLower){
+    userChoices=userChoices.concat(lowerCasedCharacters)
+  }
+  var confirmUpper = confirm("Would you like your password to contain upper case characters?")
+  if(confirmUpper){
+    userChoices=userChoices.concat(upperCasedCharacters)
+  }
+  var confirmNumber = confirm("Would you like your password to contain numeric characters?")
+  if(confirmNumber){
+    userChoices=userChoices.concat(numericCharacters)
+  }
+  var confirmSpecial = confirm("Would you like your password to contain special characters?")
+  if(confirmSpecial){
+    userChoices=userChoices.concat(specialCharacters)
+  }
+  if(!confirmLower && !confirmUpper && !confirmNumber && !confirmSpecial){
+    alert("You need to choose at least one character type to generate your password")
+  window.location.reload()
+  }
+console.log(userChoices)
   //confrims for the characters types
   //you create a variable to contain the confirm
   //var confirmLower= confirm("")
