@@ -89,31 +89,31 @@ var upperCasedCharacters = [
 ];
 
 var pwLength=0;
-var userChoices=[];
+var userOptions=[];
 var result="";
 // Function to prompt user for password options
 function getPasswordOptions() {
   pwLength=0;
-  userChoices=[];
+  userOptions=[];
   result="";
   while(pwLength <8 || pwLength >128 || isNaN(pwLength) || pwLength===""){
     pwLength = prompt("Please enter total number of characters required for password between 8 and 128")
   }
 var confirmLower = confirm("Would you like your password to contain lower case characters?")
   if(confirmLower){
-    userChoices=userChoices.concat(lowerCasedCharacters)
+    userOptions=userOptions.concat(lowerCasedCharacters)
   }
   var confirmUpper = confirm("Would you like your password to contain upper case characters?")
   if(confirmUpper){
-    userChoices=userChoices.concat(upperCasedCharacters)
+    userOptions=userOptions.concat(upperCasedCharacters)
   }
   var confirmNumber = confirm("Would you like your password to contain numeric characters?")
   if(confirmNumber){
-    userChoices=userChoices.concat(numericCharacters)
+    userOptions=userOptions.concat(numericCharacters)
   }
   var confirmSpecial = confirm("Would you like your password to contain special characters?")
   if(confirmSpecial){
-    userChoices=userChoices.concat(specialCharacters)
+    userOptions=userOptions.concat(specialCharacters)
   }
   if(!confirmLower && !confirmUpper && !confirmNumber && !confirmSpecial){
     alert("You need to choose at least one character type to generate your password")
@@ -130,7 +130,7 @@ function generatePassword() {
 getPasswordOptions()
 
 for(var i = 0; i<pwLength; i++){
-  result+= userChoices[Math.floor(Math.random()*userChoices.length)]
+  result+= userOptions[Math.floor(Math.random()*userOptions.length)]
 }
 return result
 }
